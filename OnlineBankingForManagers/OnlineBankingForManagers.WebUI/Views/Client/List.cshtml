@@ -1,0 +1,20 @@
+﻿@model OnlineBankingForManagers.WebUI.Models.ClientsListViewModel
+
+@{
+  ViewBag.Title = "Clients";
+  Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+@foreach (var c in Model.Clients)
+{
+ Html.RenderPartial("ClientSummary", c);
+    @Html.ActionLink(c.Email, "Edit", new {c.ClientId})
+   
+}
+
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List",
+        new {page = x, address = Model.CurrentAddress}))
+</div>
+
+ 
