@@ -5,6 +5,9 @@
   Layout = "~/Views/Shared/_ClientLayout.cshtml";
 }
 
+<div id="categories">
+    @{ Html.RenderAction("Menu", "Nav"); }
+</div>
 @foreach (var c in Model.Clients)
 {
  Html.RenderPartial("ClientSummary", c);

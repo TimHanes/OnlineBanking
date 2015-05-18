@@ -8,6 +8,7 @@ namespace OnlineBankingForManagers.WebUI.Models
 {
     public class RegisterViewModel
     {
+        public StatusBar StatusBar { get; set; }
         [Required]
         [Display(Name = "Логин")]
         public string UserName { get; set; }
