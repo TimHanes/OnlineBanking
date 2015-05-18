@@ -30,6 +30,7 @@ namespace OnlineBankingForManagers.WebUI.Infrastructure
         ninjectKernel.Bind<IClientRepository>().To<EntityFrameworkClientRepository>();
         ninjectKernel.Bind<IAuthProvider>().To<EntityFrameworkUserAuthProvider>();
         ninjectKernel.Bind<IAuthCookie>().To<AuthRememberMe>();
+        ninjectKernel.Bind<IUserRepository>().To<EntityFrameworkUserRepository>();
     }
     }
 }

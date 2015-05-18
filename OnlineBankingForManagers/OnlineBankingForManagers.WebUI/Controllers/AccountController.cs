@@ -27,6 +27,8 @@ namespace OnlineBankingForManagers.WebUI.Controllers
         }*/
         public ViewResult Login()
         {
+
+           
             return View();
         }
         [HttpPost]
@@ -35,21 +37,17 @@ namespace OnlineBankingForManagers.WebUI.Controllers
             
             if (ModelState.IsValid)
             {
+               
                 
 
                 if (authProvider.AuthUser(model.UserName, model.Password))
                 {
                     authCookie.AuthCookie(model.UserName, model.RememberMe);
-               //     model.StatusBar.UserName = "STATUS OK";
                     
-                    if (Url.IsLocalUrl(returnUrl))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    else
-                    {
+                    
+                   
                         return Redirect(Url.Action("List", "Client")); 
-                    }                                      
+                                                        
                 }
                 else
                 {
@@ -97,6 +95,7 @@ namespace OnlineBankingForManagers.WebUI.Controllers
 
             return View(model);
         }
+
 
     }
 }

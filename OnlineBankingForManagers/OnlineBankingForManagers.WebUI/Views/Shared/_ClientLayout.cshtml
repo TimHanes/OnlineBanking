@@ -20,6 +20,9 @@
 
                 @using (Html.BeginForm("LogOff", "Account"))
                 {
+                    <div id="categories">
+                        @{ Html.RenderAction("UserBar", "Status"); }
+                    </div>
                     <input value="out account" type="submit" />
                 }
             </div>

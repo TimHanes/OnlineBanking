@@ -48,6 +48,12 @@
       <HintPath>..\packages\Autofac.Mvc4.3.1.0\lib\net40\Autofac.Integration.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.3.1.0\lib\net35\Castle.Core.dll</HintPath>
     </Reference>
@@ -58,6 +64,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects">
+      <HintPath>..\packages\CompareNETObjects.3.02.0.0\lib\net45\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Moq">
@@ -70,6 +79,12 @@
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Repository">
+      <HintPath>..\packages\Repository.1.0.7.5\lib\net45\Repository.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -136,13 +151,19 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\Abstract\IAuthCookie.cs" />
+    <Compile Include="Infrastructure\Abstract\IAuthentication.cs" />
     <Compile Include="Infrastructure\Concrete\AuthRememberMe.cs" />
+    <Compile Include="Infrastructure\Concrete\CustomAuthentication.cs" />
+    <Compile Include="Infrastructure\Concrete\UserIndentity.cs" />
+    <Compile Include="Infrastructure\Concrete\UserProvider.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Models\ClientListViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
@@ -256,6 +277,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_ClientLayout.cshtml" />
+    <Content Include="Views\Status\UserBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -304,6 +326,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

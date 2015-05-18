@@ -8,8 +8,7 @@ namespace OnlineBankingForManagers.WebUI.Models
 {
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Status")]
+        
         public StatusBar StatusBar { get; set; }
         [Required]
         [Display(Name = "Логин")]

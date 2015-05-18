@@ -63,11 +63,15 @@
   <ItemGroup>
     <Compile Include="Abstract\IAuthProvider.cs" />
     <Compile Include="Abstract\IClientsRepository.cs" />
+    <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Concrete\EntityFrameworkClientRepository.cs" />
     <Compile Include="Concrete\EntityFrameworkDbContext.cs" />
     <Compile Include="Concrete\EntityFrameworkUserAuthProvider.cs" />
+    <Compile Include="Concrete\EntityFrameworkUserRepository.cs" />
     <Compile Include="Personages\Client.cs" />
+    <Compile Include="Personages\Role.cs" />
     <Compile Include="Personages\User.cs" />
+    <Compile Include="Personages\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
