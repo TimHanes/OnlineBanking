@@ -22,13 +22,14 @@ namespace OnlineBankingForManagers.WebUI.Controllers
             StatusBar statusBar = new StatusBar();
 
           //  if ((User.Identity.IsAuthenticated != null))// && (User.Identity.IsAuthenticated))
+            var cookie = new HttpCookie("new")
             {
-                user = "Home page for " + User.Identity.Name;
-            }
-           // else
-            {
-                user = "Home page for guest user.";
-            }
+                Name = "test_cookie",
+                Value = DateTime.Now.ToString("dd.MM.yyyy"),
+                Expires = DateTime.Now.AddMinutes(10),
+            };
+            Response.SetCookie(cookie);
+           user = cookie.Name;
             statusBar.UserName = user;
                   return PartialView(statusBar);
         }

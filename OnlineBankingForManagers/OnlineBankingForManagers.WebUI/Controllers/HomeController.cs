@@ -8,7 +8,7 @@ namespace OnlineBankingForManagers.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public void Index()
         {
             var cookie = new HttpCookie("new")
             {
@@ -17,7 +17,7 @@ namespace OnlineBankingForManagers.WebUI.Controllers
                 Expires = DateTime.Now.AddMinutes(10),
             };
             Response.SetCookie(cookie);
-            return View();
+            StatusController.user = cookie.Name;
         }
 
     }

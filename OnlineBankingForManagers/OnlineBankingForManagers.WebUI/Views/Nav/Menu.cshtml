@@ -5,17 +5,18 @@
 
 @foreach (var link in Model)
 {
-  @Html.RouteLink(link, new
+    @Html.RouteLink(link, new
     {
-      controller = "Client",
-      action = "List",
-      address = link,
-      page = 1
+        controller = "Client",
+        action = "List",
+        address = link,
+        page = 1
     },
-    new {
-    @class = link == ViewBag.SelectedAddress ? "selected" : null
-  })
+    new
+    {
+        @class = link == ViewBag.SelectedAddress ? "selected" : null
+    })
 }
 <p>@Html.ActionLink("Add a new client", "Create", "Client")</p>
 
-        
+
