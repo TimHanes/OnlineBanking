@@ -161,7 +161,6 @@
     <Compile Include="Infrastructure\Abstract\IAuthCookie.cs" />
     <Compile Include="Infrastructure\Abstract\IAuthentication.cs" />
     <Compile Include="Infrastructure\Concrete\AuthRememberMe.cs" />
-    <Compile Include="Infrastructure\Concrete\CustomAuthentication.cs" />
     <Compile Include="Infrastructure\Concrete\UserIndentity.cs" />
     <Compile Include="Infrastructure\Concrete\UserProvider.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
