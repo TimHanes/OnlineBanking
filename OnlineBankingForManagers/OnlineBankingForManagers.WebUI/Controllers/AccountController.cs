@@ -19,12 +19,7 @@ namespace OnlineBankingForManagers.WebUI.Controllers
             authCookie = cookie;
         }
         
-     /*   public ViewResult Edit(string login)
-        {
-            User user = authProvider.EditUser()
-              .FirstOrDefault(p => p.UserId == userId);
-            return View(user);
-        }*/
+     
         public ViewResult Login()
         {
 
