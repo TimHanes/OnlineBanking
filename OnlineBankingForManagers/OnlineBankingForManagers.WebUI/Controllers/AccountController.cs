@@ -19,12 +19,7 @@ namespace OnlineBankingForManagers.WebUI.Controllers
             authCookie = cookie;
         }
         
-     /*   public ViewResult Edit(string login)
-        {
-            User user = authProvider.EditUser()
-              .FirstOrDefault(p => p.UserId == userId);
-            return View(user);
-        }*/
+     
         public ViewResult Login()
         {
             return View();
@@ -40,7 +35,7 @@ namespace OnlineBankingForManagers.WebUI.Controllers
                 if (authProvider.AuthUser(model.UserName, model.Password))
                 {
                     authCookie.AuthCookie(model.UserName, model.RememberMe);
-               //     model.StatusBar.UserName = "STATUS OK";
+              
                     
                     if (Url.IsLocalUrl(returnUrl))
                     {
