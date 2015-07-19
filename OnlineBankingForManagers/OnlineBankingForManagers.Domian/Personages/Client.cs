@@ -22,6 +22,9 @@ namespace OnlineBankingForManagers.Domain.Personages
         [DataType(DataType.MultilineText)]
               [Required(ErrorMessage = "Please enter a Address")]
         public string Address { get; set; }
+
+        
+      //  public string Vip { get; set; }
   
     }
 }

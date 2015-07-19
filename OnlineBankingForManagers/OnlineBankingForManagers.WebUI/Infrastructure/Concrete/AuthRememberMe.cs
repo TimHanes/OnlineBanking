@@ -12,9 +12,10 @@ namespace OnlineBankingForManagers.WebUI.Infrastructure.Concrete
     {
         public void AuthCookie(string login, bool rememberMe)
         {
-          FormsAuthentication.SetAuthCookie(login, rememberMe);
-          
+            FormsAuthentication.SetAuthCookie(login, rememberMe);
+         
         }
+        
 
         public void AuthCookieOff()
         {
