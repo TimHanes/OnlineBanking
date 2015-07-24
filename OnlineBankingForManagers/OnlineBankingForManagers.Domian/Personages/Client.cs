@@ -24,7 +24,7 @@ namespace OnlineBankingForManagers.Domain.Personages
         public string Address { get; set; }
 
         
-      //  public string Vip { get; set; }
+        public bool Vip  { get; set; }
   
     }
 }
