@@ -20,13 +20,13 @@ namespace OnlineBankingForManagers.WebUI.Controllers
         {
             repository = repo;
         }
-        public ViewResult List(string address, int page = 1)
+        public ViewResult List(string status, int page = 1)
         {
 
             ClientsListViewModel model = new ClientsListViewModel
             {
                 Clients = repository.Clients
-              .Where(c => address == null || c.Address == address)
+              .Where(c => status == null || c.Status == status)
                     .OrderBy(c => c.ClientId)
                     .Skip((page - 1)*PageSize)
                     .Take(PageSize),
@@ -34,11 +34,11 @@ namespace OnlineBankingForManagers.WebUI.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = address == null ?
+                    TotalItems = status == null ?
         repository.Clients.Count() :
-        repository.Clients.Where(e => e.Address == address).Count()
+        repository.Clients.Where(e => e.Status == status).Count()
                 },
-                    CurrentAddress = address
+                    CurrentAddress = status
             };
 
             return View(model);
@@ -60,7 +60,7 @@ namespace OnlineBankingForManagers.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 repository.SaveClient(client);
-                TempData["message"] = string.Format("{0} has been saved", client.Login);
+                TempData["message"] = string.Format("{0} has been saved", client.ContractNumber);
                 return RedirectToAction("List");
             }
             else
@@ -79,7 +79,7 @@ namespace OnlineBankingForManagers.WebUI.Controllers
             Client deletedClient = repository.DeleteClient(clientId);
             if (deletedClient != null)
             {
-                TempData["message"] = string.Format("{0} was deleted", deletedClient.Login);
+                TempData["message"] = string.Format("{0} was deleted", deletedClient.ContractNumber);
             }
             return RedirectToAction("List");
         }

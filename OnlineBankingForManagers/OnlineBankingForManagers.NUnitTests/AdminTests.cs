@@ -22,9 +22,9 @@ namespace OnlineBankingForManagers.NUnitTests
             mock.Setup(m => m.Clients)
                 .Returns(new Client[]
                 {
-                    new Client {ClientId = 1, Login = "C1"},
-                    new Client {ClientId = 2, Login = "C2"},
-                    new Client {ClientId = 3, Login = "C3"}
+                    new Client {ClientId = 1, ContractNumber = "C1"},
+                    new Client {ClientId = 2, ContractNumber = "C2"},
+                    new Client {ClientId = 3, ContractNumber = "C3"}
                 }
                 .AsQueryable());
             // Arrange - create a controller
@@ -33,9 +33,9 @@ namespace OnlineBankingForManagers.NUnitTests
             Client[] result = ((IEnumerable<Client>)target.Index().ViewData.Model).ToArray();
             // Assert
             Assert.AreEqual(result.Length, 3);
-            Assert.AreEqual("C1", result[0].Login);
-            Assert.AreEqual("C2", result[1].Login);
-            Assert.AreEqual("C3", result[2].Login);
+            Assert.AreEqual("C1", result[0].ContractNumber);
+            Assert.AreEqual("C2", result[1].ContractNumber);
+            Assert.AreEqual("C3", result[2].ContractNumber);
         }
 
         [Test]
@@ -44,9 +44,9 @@ namespace OnlineBankingForManagers.NUnitTests
             // Arrange - create the mock repository
             Mock<IClientRepository> mock = new Mock<IClientRepository>();
             mock.Setup(m => m.Clients).Returns(new Client[] {
-    new Client {ClientId = 1, Login = "L1"},
-    new Client {ClientId = 2, Login = "L2"},
-    new Client {ClientId = 3, Login = "L3"}
+    new Client {ClientId = 1, ContractNumber = "L1"},
+    new Client {ClientId = 2, ContractNumber = "L2"},
+    new Client {ClientId = 3, ContractNumber = "L3"}
   }.AsQueryable());
             // Arrange - create the controller
             AdminController target = new AdminController(mock.Object);
@@ -66,9 +66,9 @@ namespace OnlineBankingForManagers.NUnitTests
             // Arrange - create the mock repository
             Mock<IClientRepository> mock = new Mock<IClientRepository>();
             mock.Setup(m => m.Clients).Returns(new Client[] {
-   new Client {ClientId = 1, Login = "L1"},
-    new Client {ClientId = 2, Login = "L2"},
-    new Client {ClientId = 3, Login = "L3"},
+   new Client {ClientId = 1, ContractNumber = "L1"},
+    new Client {ClientId = 2, ContractNumber = "L2"},
+    new Client {ClientId = 3, ContractNumber = "L3"},
   }.AsQueryable());
             // Arrange - create the controller
             AdminController target = new AdminController(mock.Object);
@@ -85,7 +85,7 @@ namespace OnlineBankingForManagers.NUnitTests
             // Arrange - create the controller
             AdminController target = new AdminController(mock.Object);
             // Arrange - create a client
-            Client client = new Client { Login = "Test" };
+            Client client = new Client { ContractNumber = "Test" };
             // Act - try to save the client
             ActionResult result = target.Edit(client);
             // Assert - check that the repository was called
@@ -103,7 +103,7 @@ namespace OnlineBankingForManagers.NUnitTests
             // Arrange - create the controller
             AdminController target = new AdminController(mock.Object);
             // Arrange - create a client
-            Client client = new Client { Login = "Test" };
+            Client client = new Client { ContractNumber = "Test" };
             // Arrange - add an error to the model state
             target.ModelState.AddModelError("error", "error");
             // Act - try to save the client
@@ -117,13 +117,13 @@ namespace OnlineBankingForManagers.NUnitTests
         public void Can_Delete_Valid_Clients()
         {
             // Arrange - create a client
-            Client cl = new Client { ClientId = 2, Login = "Test" };
+            Client cl = new Client { ClientId = 2, ContractNumber = "Test" };
             // Arrange - create the mock repository
             Mock<IClientRepository> mock = new Mock<IClientRepository>();
             mock.Setup(m => m.Clients).Returns(new Client[] {
-    new Client {ClientId = 1, Login = "L1"},
+    new Client {ClientId = 1, ContractNumber = "L1"},
     cl,
-    new Client {ClientId = 3, Login = "L3"},
+    new Client {ClientId = 3, ContractNumber = "L3"},
   }.AsQueryable());
             // Arrange - create the controller
             AdminController target = new AdminController(mock.Object);

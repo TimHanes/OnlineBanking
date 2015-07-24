@@ -22,12 +22,13 @@ namespace OnlineBankingForManagers.Domain.Concrete
               Client dbEntry = context.Clients.Find(client.ClientId);
               if (dbEntry != null)
               {
-                  dbEntry.Login = client.Login;
-                  dbEntry.Address = client.Address;
-                  dbEntry.Email = client.Email;
-                  dbEntry.Password = client.Password;
-                 
-                  dbEntry.Vip = client.Vip;
+                  dbEntry.ContractNumber = client.ContractNumber;
+                  dbEntry.Firstname = client.Firstname;
+                  dbEntry.Lastname = client.Lastname;
+                  dbEntry.DateOfBirth = client.DateOfBirth;
+                  dbEntry.PhoneNumber = client.PhoneNumber;
+                  dbEntry.Status = client.Status;
+                  dbEntry.Deposit = client.Deposit;
               }
           }
           context.SaveChanges();

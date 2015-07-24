@@ -20,7 +20,7 @@ namespace OnlineBankingForManagers.WebUI.Controllers
         {
             ViewBag.SelectedAddress = address;
             IEnumerable<string> addresses = repository.Clients
-              .Select(x => x.Address)
+              .Select(x => x.Status)
               .Distinct()
               .OrderBy(x => x);
             return PartialView(addresses);

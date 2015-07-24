@@ -21,11 +21,11 @@ namespace OnlineBankingForManagers.NUnitTests
                 // Arrange
                 Mock<IClientRepository> mock = new Mock<IClientRepository>();
                 mock.Setup(m => m.Clients).Returns(new Client[] {
-            new Client {ClientId = 1, Login = "C1"},
-            new Client {ClientId = 2, Login = "C2"},
-            new Client {ClientId = 3, Login = "C3"},
-            new Client {ClientId = 4, Login = "C4"},
-            new Client {ClientId = 5, Login = "C5"}
+            new Client {ClientId = 1, ContractNumber = "C1"},
+            new Client {ClientId = 2, ContractNumber = "C2"},
+            new Client {ClientId = 3, ContractNumber = "C3"},
+            new Client {ClientId = 4, ContractNumber = "C4"},
+            new Client {ClientId = 5, ContractNumber = "C5"}
            }.AsQueryable());
                 ClientController controller = new ClientController(mock.Object);
 
@@ -37,8 +37,8 @@ namespace OnlineBankingForManagers.NUnitTests
                 // Assert
                 Client[] clientArray = result.Clients.ToArray();
                 Assert.IsTrue(clientArray.Length == 2);
-                Assert.AreEqual(clientArray[0].Login, "C4");
-                Assert.AreEqual(clientArray[1].Login, "C5");
+                Assert.AreEqual(clientArray[0].ContractNumber, "C4");
+                Assert.AreEqual(clientArray[1].ContractNumber, "C5");
             }
 
          [Test]
@@ -73,11 +73,11 @@ namespace OnlineBankingForManagers.NUnitTests
              // Arrange
              Mock<IClientRepository> mock = new Mock<IClientRepository>();
              mock.Setup(m => m.Clients).Returns(new Client[] {
-            new Client {ClientId = 1, Login = "C1"},
-            new Client {ClientId = 2, Login = "C2"},
-            new Client {ClientId = 3, Login = "C3"},
-            new Client {ClientId = 4, Login = "C4"},
-            new Client {ClientId = 5, Login = "C5"}
+            new Client {ClientId = 1, ContractNumber = "C1"},
+            new Client {ClientId = 2, ContractNumber = "C2"},
+            new Client {ClientId = 3, ContractNumber = "C3"},
+            new Client {ClientId = 4, ContractNumber = "C4"},
+            new Client {ClientId = 5, ContractNumber = "C5"}
     }.AsQueryable());
 
              // Arrange
@@ -101,11 +101,11 @@ namespace OnlineBankingForManagers.NUnitTests
              // - create the mock repository
              Mock<IClientRepository> mock = new Mock<IClientRepository>();
              mock.Setup(m => m.Clients).Returns(new Client[] {
-            new Client {ClientId = 1, Login = "C1", Address = "A1"},
-            new Client {ClientId = 2, Login = "C2", Address = "A2"},
-            new Client {ClientId = 3, Login = "C3", Address = "A3"},
-            new Client {ClientId = 4, Login = "C4", Address = "A2"},
-            new Client {ClientId = 5, Login = "C5", Address = "A1"}
+            new Client {ClientId = 1, ContractNumber = "C1", Address = "A1"},
+            new Client {ClientId = 2, ContractNumber = "C2", Address = "A2"},
+            new Client {ClientId = 3, ContractNumber = "C3", Address = "A3"},
+            new Client {ClientId = 4, ContractNumber = "C4", Address = "A2"},
+            new Client {ClientId = 5, ContractNumber = "C5", Address = "A1"}
     }.AsQueryable());
 
              // Arrange - create a controller and make the page size 3 items
@@ -118,8 +118,8 @@ namespace OnlineBankingForManagers.NUnitTests
              
              // Assert
              Assert.AreEqual(result.Length, 2);
-             Assert.IsTrue(result[0].Login == "C2" && result[0].Address == "A2");
-             Assert.IsTrue(result[1].Login == "C4" && result[1].Address == "A2");
+             Assert.IsTrue(result[0].ContractNumber == "C2" && result[0].Address == "A2");
+             Assert.IsTrue(result[1].ContractNumber == "C4" && result[1].Address == "A2");
          }
          [Test]
          public void Can_Create_Addresses()
@@ -128,11 +128,11 @@ namespace OnlineBankingForManagers.NUnitTests
              // - create the mock repository
              Mock<IClientRepository> mock = new Mock<IClientRepository>();
              mock.Setup(m => m.Clients).Returns(new Client[] {
-            new Client {ClientId = 1, Login = "C1", Address = "Ukrain"},
-            new Client {ClientId = 2, Login = "C2", Address = "Russia"},
-            new Client {ClientId = 3, Login = "C3", Address = "American"},
-            new Client {ClientId = 4, Login = "C4", Address = "Ukrain"},
-            new Client {ClientId = 5, Login = "C5", Address = "Russia"}
+            new Client {ClientId = 1, ContractNumber = "C1", Address = "Ukrain"},
+            new Client {ClientId = 2, ContractNumber = "C2", Address = "Russia"},
+            new Client {ClientId = 3, ContractNumber = "C3", Address = "American"},
+            new Client {ClientId = 4, ContractNumber = "C4", Address = "Ukrain"},
+            new Client {ClientId = 5, ContractNumber = "C5", Address = "Russia"}
     }.AsQueryable());
 
              // Arrange - create the controller
@@ -154,8 +154,8 @@ namespace OnlineBankingForManagers.NUnitTests
              // - create the mock repository
              Mock<IClientRepository> mock = new Mock<IClientRepository>();
              mock.Setup(m => m.Clients).Returns(new Client[] {
-            new Client {ClientId = 1, Login = "C1", Address = "Ukrain"},
-            new Client {ClientId = 2, Login = "C2", Address = "Russia"},
+            new Client {ClientId = 1, ContractNumber = "C1", Address = "Ukrain"},
+            new Client {ClientId = 2, ContractNumber = "C2", Address = "Russia"},
               }.AsQueryable());
 
              // Arrange - create the controller

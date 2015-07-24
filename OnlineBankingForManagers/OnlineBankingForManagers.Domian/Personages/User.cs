@@ -24,7 +24,7 @@ namespace OnlineBankingForManagers.Domain.Personages
         [Required(ErrorMessage = "Please enter a Email")]
         public string Email { get; set; }
 
-        [DataType(DataType.MultilineText)]
+        [DataType(DataType.Text)]
         [Required(ErrorMessage = "Please enter a Address")]
         public string Address { get; set; }
   
