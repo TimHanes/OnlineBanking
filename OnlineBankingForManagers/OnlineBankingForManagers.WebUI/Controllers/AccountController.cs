@@ -38,6 +38,10 @@ namespace OnlineBankingForManagers.WebUI.Controllers
                 if (authProvider.AuthUser(model.UserName, model.Password))
                 {
                     authCookie.AuthCookie(model.UserName, model.RememberMe);
+<<<<<<< HEAD
+=======
+              
+>>>>>>> 02845c5c33b5b6672c0cde399ce368e726430001
                     
                     
                    

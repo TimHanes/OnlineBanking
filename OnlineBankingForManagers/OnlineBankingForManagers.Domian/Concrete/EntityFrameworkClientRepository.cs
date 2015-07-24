@@ -26,6 +26,8 @@ namespace OnlineBankingForManagers.Domain.Concrete
                   dbEntry.Address = client.Address;
                   dbEntry.Email = client.Email;
                   dbEntry.Password = client.Password;
+                 
+                //  dbEntry.Vip = client.Vip;
               }
           }
           context.SaveChanges();
