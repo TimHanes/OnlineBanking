@@ -11,7 +11,7 @@
 @foreach (var c in Model.Clients)
 {
  Html.RenderPartial("ClientSummary", c);
-    @Html.ActionLink(c.Email, "Edit", new {c.ClientId})
+    @Html.ActionLink(c.PhoneNumber, "Edit", new {c.ClientId})
    
 }
 
