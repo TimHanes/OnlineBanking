@@ -13,8 +13,11 @@
 </head>
 <body>
     <header>
+        
         <div class="title">
-            ONLINE BANKING
+            
+            <img src="~/Content/images/logon.png" />
+            Welcome to online banking system
 
 
             <div id="showaccount">
@@ -24,18 +27,11 @@
                     var name = HttpContext.Current.User.Identity.Name;
                     if (name != "")
                     {
-                        using (Html.BeginForm("LogOff", "Account"))
-                        {
-
-                            <a>TimHan</a>
-                            <input value="out account" type="submit" />
-
-
-                        }
+                        <a>You are loggend in as @name</a>              
+                        @Html.ActionLink("Logout", "LogOff", "Account")
                     }
-                    else
-                    { <a>WELCOME Guest</a>}
-                }
+   
+}
 
             </div>
 

@@ -1,17 +1,17 @@
 ﻿@model OnlineBankingForManagers.WebUI.Models.LoginViewModel
 
 @{
-    ViewBag.Title = "Client: Log In";
+    ViewBag.Title = "Manager: Log In";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Log In</h1>
-<p>Please log in to access the administrative area:</p>
+
+<p>Please enter your credenlials:</p>
 
 @using (Html.BeginForm())
 {
   @Html.ValidationSummary(true)
   @Html.EditorForModel()
-    <p><input type="submit" value="Log in"/> </p>
+    <p><input type="submit" value="Submit"/> </p>
    
-    @Html.ActionLink("Add a new account", "Register")
+    @Html.ActionLink("Register new account", "Register")
 }
