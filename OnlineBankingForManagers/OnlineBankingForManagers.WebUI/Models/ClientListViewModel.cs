@@ -7,9 +7,9 @@ namespace OnlineBankingForManagers.WebUI.Models
     public class ClientsListViewModel
     {
 
-        public WebGrid Clients { get; set; }
+        public IEnumerable<Client> Clients { get; set; }
         public PagingInfo PagingInfo { get; set; }
-        public string CurrentAddress { get; set; }
+        public string CurrentStatus { get; set; }
        
     }
 }

@@ -24,17 +24,24 @@ namespace OnlineBankingForManagers.WebUI.Controllers
         }
         public ViewResult List(string status, int page = 1)
         {
-           
-            IEnumerable<Client> grid = repository.Clients;
-          //  ClientsListViewModel model = new ClientsListViewModel
-            
-                 
-                /*repository.Clients
-              .Where(c => status == null || c.Status == status)
+            ClientsListViewModel model = new ClientsListViewModel
+            {
+                Clients = repository.Clients
+              .Where(c => ((status == null)||(c.Status == status)))
                     .OrderBy(c => c.ClientId)
-                    .Skip((page - 1)*PageSize)
-                    .Take(PageSize)*/
-            var model = new WebGrid(grid);
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = status == null ?
+        repository.Clients.Count() :
+        repository.Clients.Where(e => e.Status == status).Count()
+                },
+                CurrentStatus = status
+            };
+
 
             return View(model);
         }

@@ -15,7 +15,7 @@ namespace OnlineBankingForManagers.WebUI
                 {
                     controller = "Client",
                     action = "List",
-                    address = (string)null,
+                    status = (string)null,
                     page = 1
                 });
 
@@ -26,16 +26,16 @@ namespace OnlineBankingForManagers.WebUI
                  {
                      controller = "Client",
                      action = "List",
-                     address = (string)null},
+                     status = (string)null},
                      new { page = @"\d+" }
                  );
              routes.MapRoute(null,
-        "{address}",
+        "{status}",
         new { controller = "Client", action = "List", page = 1 }
       );
 
       routes.MapRoute(null,
-        "{address}/Page{page}",
+        "{status}/Page{page}",
         new { controller = "Client", action = "List" },
         new { page = @"\d+" }
       );

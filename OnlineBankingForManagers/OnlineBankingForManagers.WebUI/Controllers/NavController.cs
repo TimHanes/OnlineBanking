@@ -16,14 +16,14 @@ namespace OnlineBankingForManagers.WebUI.Controllers
             repository = repo;
         }
 
-        public PartialViewResult Menu(string address = null)
+        public PartialViewResult Menu(string status = null)
         {
-            ViewBag.SelectedAddress = address;
-            IEnumerable<string> addresses = repository.Clients
+            ViewBag.SelectedStatus = status;
+            IEnumerable<string> statuses = repository.Clients
               .Select(x => x.Status)
               .Distinct()
               .OrderBy(x => x);
-            return PartialView(addresses);
+            return PartialView(statuses);
         }
 
     }

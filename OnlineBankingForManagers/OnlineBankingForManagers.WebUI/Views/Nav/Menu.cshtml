@@ -9,11 +9,11 @@
     {
       controller = "Client",
       action = "List",
-      address = link,
+      status = link,
       page = 1
     },
     new {
-    @class = link == ViewBag.SelectedAddress ? "selected" : null
+    @class = link == ViewBag.SelectedStatus ? "selected" : null
   })
 }
 <p>@Html.ActionLink("Add a new client", "Create", "Client")</p>
